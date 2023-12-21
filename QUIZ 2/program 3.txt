@@ -1,0 +1,39 @@
+
+#include <stdio.h>
+
+int main() {
+
+   float hours;
+   int days, worker;
+   printf("Enter hours : ");
+   scanf("%f", &hours);
+    printf("Enter days : ");
+   scanf("%d", &days);
+printf("Enter worker : ");
+   scanf("%d", &worker);
+int working_hours = (days) * 8 * worker + days * worker * 2;
+
+  if (working_hours >= hours){
+      printf("Yes!{%d} hours left.", working_hours-(int)hours);
+  }
+  else{
+ printf( "Not enough time!{%d} hours needed.", (int)hours-working_hours);
+ 
+  }
+   
+   
+
+    return 0;
+}
+
+output:
+
+Enter hours : 1000.98
+Enter days : 30
+Enter worker : 3
+Not enough time!{100} hours needed.
+
+Enter hours : 60.89
+Enter days : 3
+Enter worker : 10
+Yes!{240} hours left.

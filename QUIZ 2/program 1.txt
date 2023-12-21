@@ -1,0 +1,30 @@
+
+#include <stdio.h>
+
+int main() {
+    
+   int x, y, z;
+   printf("Enter x : ");
+   scanf("%d", &x);
+    printf("Enter y : ");
+   scanf("%d", &y);
+printf("Enter z : ");
+   scanf("%d", &z);
+   if((x>y && x<z) || (x>z && x<y)){
+       printf("1");
+   }
+   else if((y>x && y<z) || (y>z && y<x)){
+       printf("2");
+   }
+   else if((z>x && z<y) || (z>y && z<x)){
+       printf("3");
+   }
+
+    return 0;
+}
+
+output:
+Enter x : 28
+Enter y : 90
+Enter z : 35
+3
