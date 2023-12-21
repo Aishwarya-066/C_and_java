@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+ int a = 1200, b = 1090;
+ printf("old: num1=%d num2=%d",a,b);
+ a = a+b;
+ b = a-b;
+ a= a-b;
+ printf("\nnew: num1=%d num2=%d",a,b);
+ 
+}
+
+Output:
+old: num1=1200 num2=1090
+new: num1=1090 num2=1200

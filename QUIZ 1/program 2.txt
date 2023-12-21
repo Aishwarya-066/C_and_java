@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+int n;
+printf("Enter number of days : ");
+scanf("%d", &n);
+int year, week, days;
+year = n/365;
+week = (n%365)/7;
+days = (n%365)%7;
+printf("Number of Years: %d", year);
+printf("\nNumber of week: %d", week);
+printf("\nNumber of days: %d", days);    }
+
+o/p:
+Enter number of days : 1345
+Number of Years: 3
+Number of week: 35
+Number of days: 5
+
