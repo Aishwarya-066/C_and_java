@@ -1,0 +1,34 @@
+
+#include <stdio.h>
+#include <math.h>
+int main() {
+
+    char shape;
+    int size;
+    printf("Shape = ");
+    scanf("%c", &shape);
+    printf("Size = ");
+    scanf("%d", &size);
+    switch(shape){
+        case 'S':
+            printf("Area of Square = %d", size*size);
+            break;
+        case 'C':
+            printf("Area of Circle = %.2f", 3.14*size*size);
+            break;
+        default:
+            break;
+    }
+
+    return 0;
+}
+
+output:
+
+Shape = S
+Size = 5
+Area of Square = 25
+
+Shape = C
+Size = 5
+Area of Circle = 78.50

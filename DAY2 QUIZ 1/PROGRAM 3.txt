@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <string.h>
+
+void justifySentence(char sentence[], int screenLength) {
+    int sentenceLength = strlen(sentence);
+    int spaceCount = 0;
+    for (int i = 0; i < sentenceLength; i++) {
+        if (sentence[i] == ' ') {
+            spaceCount++;
+        }
+    }
+    int extraSpaces = screenLength - sentenceLength + spaceCount;
+    int spacesBetweenWords = extraSpaces / spaceCount;
+    int remainingSpaces = extraSpaces % spaceCount;
+    for (int i = 0; i < sentenceLength; i++) {
+        if (sentence[i] != ' ') {
+            putchar(sentence[i]);
+        } else {
+    
+            for (int j = 0; j < spacesBetweenWords; j++) {
+                putchar('*');
+            }
+            if (remainingSpaces > 0) {
+                putchar('*');
+                remainingSpaces--;
+            }
+        }
+    }
+
+    printf("\n");
+}
+
+int main() {
+    char sentence[100] = "Welcome to Zoho Corporation";
+    int screenLength;
+    printf("screen length = ");
+    scanf("%d", &screenLength);
+    justifySentence(sentence, screenLength);
+
+    return 0;
+}
+
+OUTPUT
+
+screen length = 40
+Welcome******to*****Zoho*****Corporation
