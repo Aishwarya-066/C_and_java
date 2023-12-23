@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+
+char phone_letters[10][5] = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+
+void backtrack(char *combination, int index, char *digits, char **result, int *result_length) {
+    if (index == strlen(digits)) {
+        result[*result_length] = strdup(combination);
+        (*result_length)++;
+        return;
+    }
+
+    for (int i = 0; i < strlen(phone_letters[digits[index] - '0']); i++) {
+        combination[index] = phone_letters[digits[index] - '0'][i];
+        backtrack(combination, index + 1, digits, result, result_length);
+    }
+}
+
+char **letterCombinations(char *digits, int *returnSize) {
+    if (strlen(digits) == 0) {
+        *returnSize = 0;
+        return NULL;
+    }
+
+    char **result = malloc(sizeof(char *) * 5000); 
+    *returnSize = 0;
+    char combination[strlen(digits) + 1];
+    combination[strlen(digits)] = '\0';
+    backtrack(combination, 0, digits, result, returnSize);
+    return result;
+}
+
+int main() {
+    char *digits = "23";
+    int returnSize;
+    char **combinations = letterCombinations(digits, &returnSize);
+
+    printf("Combinations: ");
+    for (int i = 0; i < returnSize; i++) {
+        printf("%s ", combinations[i]);
+        free(combinations[i]);
+    }
+    printf("\n");
+
+    free(combinations);
+    return 0;
+}
+
+OUTPUT:
+
+Combinations: ad ae af bd be bf cd ce cf 
