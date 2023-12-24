@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int has_pair_with_sum(int arr[], int n, int x) {
+    int hash_set[100000] = {0};  
+
+    for (int i = 0; i < n; ++i) {
+        int complement = x - arr[i];
+
+        if (hash_set[complement] == 1) {
+            return 1;  
+        }
+
+        hash_set[arr[i]] = 1;
+    }
+
+    return 0;  
+}
+
+int main() {
+    int arr1[] = {1, 4, 45, 6, 10, 8};
+    int arr2[] = {1, 2, 4, 3, 6};
+    int x1 = 16, x2 = 10;
+
+    int n1 = sizeof(arr1) / sizeof(arr1[0]);
+    int n2 = sizeof(arr2) / sizeof(arr2[0]);
+
+    printf("Output 1: %s\n", has_pair_with_sum(arr1, n1, x1) ? "Yes" : "No");  
+    printf("Output 2: %s\n", has_pair_with_sum(arr2, n2, x2) ? "Yes" : "No");  
+
+    return 0;
+}
+
+Output 1: Yes
+Output 2: Yes

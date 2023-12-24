@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int second_largest_distinct(int arr[], int n) {
+    int largest = arr[0];
+    int second_largest = arr[0];
+
+    for (int i = 1; i < n; ++i) {
+        if (arr[i] > largest) {
+            second_largest = largest;
+            largest = arr[i];
+        }
+
+        else if (arr[i] > second_largest && arr[i] != largest) {
+            second_largest = arr[i];
+        }
+    }
+
+    return second_largest;
+}
+
+int main() {
+    int arr1[] = {12, 35, 1, 10, 34, 1};
+    int arr2[] = {10, 5, 10};
+
+    int n1 = sizeof(arr1) / sizeof(arr1[0]);
+    int n2 = sizeof(arr2) / sizeof(arr2[0]);
+
+    printf("Output 1: %d\n", second_largest_distinct(arr1, n1));  // Output: 34
+    printf("Output 2: %d\n", second_largest_distinct(arr2, n2));  // Output: 5
+
+    return 0;
+}
+
+Output 1: 34
+Output 2: 10
