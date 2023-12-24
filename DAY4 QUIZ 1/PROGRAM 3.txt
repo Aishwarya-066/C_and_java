@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+void printUnion(int arr1[], int n, int arr2[], int m) {
+    int i = 0, j = 0;
+
+    printf("Union of the arrays: ");
+    
+    while (i < n && j < m) {
+        if (arr1[i] < arr2[j]) {
+            printf("%d ", arr1[i++]);
+        } else if (arr2[j] < arr1[i]) {
+            printf("%d ", arr2[j++]);
+        } else {
+            printf("%d ", arr1[i++]);
+            j++;
+        }
+    }
+
+    while (i < n) {
+        printf("%d ", arr1[i++]);
+    }
+
+    while (j < m) {
+        printf("%d ", arr2[j++]);
+    }
+
+    printf("\n");
+}
+
+int main() {
+    int n1 = 5, arr1[] = {1, 2, 3, 4, 5};
+    int m1 = 3, arr2[] = {1, 2, 3};
+    
+    printf("Output:\n");
+    printUnion(arr1, n1, arr2, m1);
+
+    
+    return 0;
+}
+Output:
+Union of the arrays: 1 2 3 4 5 

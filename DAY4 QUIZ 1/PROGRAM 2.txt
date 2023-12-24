@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+void findDuplicates(int arr[], int N) {
+    int *count = (int *)calloc(N, sizeof(int));
+
+    printf("Duplicate elements: ");
+    for (int i = 0; i < N; i++) {
+        count[arr[i]]++;
+        if (count[arr[i]] == 2) {
+            printf("%d ", arr[i]);
+        }
+    }
+
+    free(count);
+}
+
+int main() {
+    int N1 = 6;
+    int arr1[] = {0, 3, 3, 2,2,1};
+    printf("output:\n");
+    findDuplicates(arr1, N1);
+    printf("\n");
+
+    return 0;
+}
+
+output:
+
+output:
+Duplicate elements: 3 2 
