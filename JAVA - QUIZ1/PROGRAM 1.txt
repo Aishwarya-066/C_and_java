@@ -1,0 +1,40 @@
+1)
+package javapro;
+
+import java.util.Scanner;
+
+public class Javapro {
+    public static void main(String[] args) {
+ System.out.println("Enter an Integer : ");
+        Scanner obj = new Scanner(System.in);
+        int a = obj.nextInt();
+        System.out.println("Entered Integer is : " + a);
+    }   
+}
+
+output:
+
+Enter an Integer : 
+10
+Entered Integer is : 10
+
+2)
+package javapro;
+
+import java.util.Scanner;
+
+public class Javapro {
+    public static void main(String[] args) {
+        Scanner obj = new Scanner(System.in);
+        float a = obj.nextFloat();
+        float b = obj.nextFloat();
+        float r = (a+b)/2;
+        System.out.printf("Result: %.2f", r);
+    }   
+}
+
+output:
+29.4
+56.89
+Result: 43.15
+

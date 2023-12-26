@@ -1,0 +1,99 @@
+package javapro;
+
+import java.util.Scanner;
+
+public class Javapro {
+    public static void main(String[] args) {
+        Scanner obj = new Scanner(System.in);
+        int q = 1;
+        while(q == 1){
+        System.out.println("Enter a : ");
+        int a = obj.nextInt();
+        System.out.println("Enter b :");
+        int b = obj.nextInt();
+        System.out.println("Enter the operation (+,-,*,/) : ");
+        String s = obj.next();
+        switch(s){
+            case "+":
+                System.out.println("Addition : " + (a+b));
+                break;
+            case "-":    
+                System.out.println("Subraction : " + (a-b));
+                break;
+            case "*":
+                System.out.println("Multiplication : " + (a*b));
+                break;
+            case "/":
+                try{
+                    System.out.println("Division : " + (a/b));  
+                }
+                 catch(Exception e){
+                        System.out.println("DivionByZero");
+                  }
+                break;
+            default:
+                System.out.println("Invalid operator");
+        }
+        System.out.println("Do you want to continue (1/0): ");
+        q = obj.nextInt();        
+        }
+        
+    }   
+}
+
+OUTPUT:
+Enter a : 
+3
+Enter b :
+4
+Enter the operation (+,-,*,/) : 
++
+Addition : 7
+Do you want to continue (1/0): 
+1
+Enter a : 
+4
+Enter b :
+2
+Enter the operation (+,-,*,/) : 
+
+-
+Subraction : 2
+Do you want to continue (1/0): 
+1
+Enter a : 
+6
+Enter b :
+9
+Enter the operation (+,-,*,/) : 
+*
+Multiplication : 54
+Do you want to continue (1/0): 
+1
+Enter a : 
+6
+Enter b :
+2
+Enter the operation (+,-,*,/) : 
+/
+Division : 3
+Do you want to continue (1/0): 
+1
+Enter a : 
+3
+Enter b :
+0
+Enter the operation (+,-,*,/) : 
+/
+DivionByZero
+Do you want to continue (1/0): 
+1
+Enter a : 
+3
+Enter b :
+5
+Enter the operation (+,-,*,/) : 
+(
+Invalid operator
+Do you want to continue (1/0): 
+0

@@ -1,0 +1,41 @@
+package javapro;
+
+import java.util.Scanner;
+
+public class Javapro {
+    public static void main(String[] args) {
+        Scanner obj = new Scanner(System.in);
+        System.out.println("Enter the Number : ");
+        int a = obj.nextInt();
+        int sum = a;
+        int x = a;
+        if(a==1 || a==7){
+            System.out.println("Happy Number");
+        }
+        while(sum > 9){
+            sum = 0;
+            while(x > 0){
+                int rem = x%10;
+                sum += rem *rem;
+                x/=10;
+            }
+            x = sum;
+        }
+        if(sum == 7 || sum==1){
+            System.out.println("Happy Number");
+        }
+        else{
+        System.out.println("Not Happy Number");
+        }
+    }   
+}
+
+OUTPUT:
+
+Enter the Number : 
+10
+Happy Number
+
+Enter the Number : 
+143
+Not Happy Number
