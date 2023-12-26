@@ -1,0 +1,47 @@
+package javapro;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Javapro {
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter the String : ");
+       String word = sc.next();
+       int j = 0;
+       boolean flag = false;
+       for(int i = 1; i < word.length(); i++){
+           int c1 = word.length()-(i*2);
+           int c2 = i-2;
+           if(c1 == c2){
+               flag = true;
+               for(int row = 0; row < i; row++){
+                   for(int col = 0; col < i;col++){
+                       if((row==0) || (row==i-1 || (row+col == i-1))){
+                           System.out.print(word.charAt(j) + " ");
+                           j++;
+                       }
+                       else{
+                           System.out.print(" ");
+                       }
+                   }
+                   System.out.println();
+               }
+           }
+       }
+		
+		
+		
+    }   
+}
+
+OUTPUt:
+Enter the String:
+zohocorporationteam
+z o h o c o r
+            p
+         o
+       r
+    a
+  t
+i o n t e a m

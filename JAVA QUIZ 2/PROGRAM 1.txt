@@ -1,0 +1,34 @@
+public class SeparateOddEven {
+    public static void main(String[] args) {
+        int[] inputArray = {10, 3, 5, 12, 17, 22};
+        int[] evenArray = new int[inputArray.length];
+        int evenCount = 0;
+        int[] oddArray = new int[inputArray.length];
+        int oddCount = 0;
+        for (int element : inputArray) {
+            if (element % 2 == 0) {
+                evenArray[evenCount++] = element;
+            } else {
+                oddArray[oddCount++] = element;
+            }
+        }
+        System.out.print("[");
+        for (int i = 0; i < evenCount; i++) {
+            System.out.print(evenArray[i]);
+            if (i < evenCount - 1) {
+                System.out.print(",");
+            }
+        }
+        System.out.println("]");
+        System.out.print("[");
+        for (int i = 0; i < oddCount; i++) {
+            System.out.print(oddArray[i]);
+            if (i < oddCount - 1) {
+                System.out.print(",");
+            }
+        }
+        System.out.println("]");
+    }
+}
+[10,12,22]
+[3,5,17]
