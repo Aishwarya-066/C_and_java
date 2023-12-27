@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class ClubbedWords {
+
+    public static List<String> findClubbedWords(List<String> words, String wordToRemove) {
+        Set<String> clubbedWords = new HashSet<>();
+
+        for (int i = 0; i < words.size(); i++) {
+            String currentWord = words.get(i);
+            for (int j = 0; j < words.size(); j++) {
+                if (i != j) {
+                    String otherWord = words.get(j);
+                    if (currentWord.contains(otherWord)) {
+                        clubbedWords.add(currentWord);
+                    }
+                }
+            }
+        }
+
+        clubbedWords.remove(wordToRemove);
+        return new ArrayList<>(clubbedWords);
+    }
+
+    public static void main(String[] args) {
+        List<String> words = new ArrayList<>();
+        words.add("mat");
+        words.add("mate");
+        words.add("matbellmates");
+        words.add("bell");
+        words.add("bellmatesbell");
+        words.add("butterribbon");
+        words.add("butter");
+        words.add("ribbon");
+
+        List<String> result = findClubbedWords(words, "mate");
+
+        System.out.println("Clubbed Words: " + result);
+    }
+}
+
+OUTPUT:
+
+Clubbed Words: [bellmatesbell, butterribbon, matbellmates]
