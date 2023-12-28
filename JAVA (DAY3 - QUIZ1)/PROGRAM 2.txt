@@ -1,0 +1,42 @@
+
+package javapro;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class pro2 {
+
+    public static int[] partitionAndMerge(int[] arr, int partitionSize, int[] partitionOrder) {        // Create partitions
+        List<int[]> partitions = new ArrayList<>();
+        for (int i = 0; i < arr.length; i += partitionSize) {
+            int end = Math.min(i + partitionSize, arr.length);
+            partitions.add(Arrays.copyOfRange(arr, i, end));
+        }
+
+       
+        int[] mergedArr = new int[arr.length];
+        int index = 0;
+        for (int order : partitionOrder) {
+            for (int element : partitions.get(order - 1)) {
+                mergedArr[index++] = element;
+            }
+        }
+
+        return mergedArr;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int partitionSize = 2;
+        int[] partitionOrder = {3, 2, 1};
+
+        int[] mergedArr = partitionAndMerge(arr, partitionSize, partitionOrder);
+
+        System.out.println(Arrays.toString(mergedArr));  
+    }
+}
+
+OUTPUT:
+
+[5, 3, 4, 1, 2]

@@ -1,0 +1,63 @@
+package javapro;
+
+/**
+ *
+ * @author Aishwarya
+ */
+class PalPrime {
+    int number;
+    String message;
+
+    public PalPrime(int number, String message) {
+        this.number = number;
+        this.message = message;
+        System.out.println("Number " + number + " is " + message);
+    }
+}
+
+public class pro3 {
+
+    public static boolean isPalindrome(int num) {
+        int reversed = 0, original = num;
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        return reversed == original;
+    }
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 34543, 565, 727, 10099};
+
+        for (int num : arr) {
+            if (isPalindrome(num) && isPrime(num)) {
+                new PalPrime(num, "PalPrime");
+            } else if (isPalindrome(num)) {
+                new PalPrime(num, "Palindrome");
+            } else if (isPrime(num)) {
+                new PalPrime(num, "Prime");
+            }
+        }
+    }
+}
+
+OUTPUT :
+
+Number 1 is Palindrome
+Number 34543 is PalPrime
+Number 565 is Palindrome
+Number 727 is PalPrime
+Number 10099 is Prime
